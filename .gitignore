@@ -5,4 +5,4 @@ plugin/**
 .VimballRecord
 bundle/vim-latex/**
 bundle/taglist.vim
-
+.DS_Store
