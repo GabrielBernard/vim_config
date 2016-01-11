@@ -1,0 +1,8 @@
+tmp/**
+sessions/**
+doc/**
+plugin/**
+.VimballRecord
+bundle/vim-latex/**
+bundle/taglist.vim
+
