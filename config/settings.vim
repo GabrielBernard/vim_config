@@ -111,6 +111,11 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <F3> :tabnew ~/.vimrc<cr> :vsplit ~/.vim/config/settings.vim<cr>
 
 "let mapleader=","       " leader is comma
+
+" map spell check language change
+map <silent> <F7> <Esc>:silent setlocal spell! spelllang=en<CR> :set spell<CR>
+map <silent> <F6> <Esc>:silent setlocal spell! spelllang=fr<CR> :set spell<CR>
+
 "}}}
 
 "Compiler{{{
@@ -207,6 +212,13 @@ let g:session_autosave="no"
 
 let g:cpp_class_scope_highlight = 1
 let g:cpp_experimental_template_highlight = 1
+
+" }}}
+
+" spell check {{{
+
+autocmd BufEnter *.tex set spell spelllang=fr
+au BufEnter *.txt set spell spelllang=fr 
 
 " }}}
 
