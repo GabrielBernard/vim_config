@@ -4,5 +4,6 @@ doc/**
 plugin/**
 .VimballRecord
 bundle/vim-latex/**
+bundle/YouCompleteMe/**
 bundle/taglist.vim
 .DS_Store
