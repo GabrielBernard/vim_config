@@ -21,9 +21,11 @@ syntax enable
 " colorsbox-stbright
 " colorsbox-steighties
 " colorsbox-stnight
+" hybrid
 
 if has("gui_running")
-    colorscheme badwolf
+    set background=dark
+    colorscheme lucius 
 else
     colorscheme hybrid
 endif
@@ -116,6 +118,8 @@ nnoremap <F3> :tabnew ~/.vimrc<cr> :vsplit ~/.vim/config/settings.vim<cr>
 au FileType cpp set makeprg=\ g++\ -v\ -std=c++14\ -stdlib=libc++\ *.cpp\ -g\ -o\ MyProgram
 "au FileType latex set makeprg=\pdflatex\ % ";\ bibtex\ %;\ pdflatex\ %\ pdflatex\ %\
 
+au Filetype java set makeprg=\ javac\ *.java
+
 au FileType tex set makeprg=\ pdflatex\ %;\ pdflatex\ %;\ pdflatex\ %;\ latexmk\ -c;\ open\ *.pdf;
 
 nnoremap <F4> :make!<cr>
@@ -170,14 +174,16 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_w=1
 let g:syntastic_check_on_wq = 0
 
+let g:syntastic_mode_map = {'passive_filetypes':['java']}
+
 au FileType cpp let g:syntastic_cpp_compiler = 'g++'
-au FileType cpp let g:syntastic_cpp_compiler_options = ' -std=c++14 -stdlib=libc++'
+au FileType cpp let g:syntastic_cpp_compiler_options = ' -std=c++14 -stdlib=libc++' 
 
 "}}}
 
 "YouCompleteMe{{{
 
-nnoremap <leader>C :!ctags -R --fields=+l --exclude=.git --exclude=log --exclude=tmp *<CR><CR>
+nnoremap ,C :!ctags -R --fields=+l --exclude=.git --exclude=log --exclude=tmp *<CR><CR>
 
 let g:ycm_global_ycm_extra_conf = "~/.vim/config/ycm_extra_conf.py"
 
