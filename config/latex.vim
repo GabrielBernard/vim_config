@@ -4,6 +4,11 @@ let g:latex_complete_enabled = 1
 let g:latex_indent_enabled = 1
 let g:latex_mappings_enabled = 1
 
+" Configure listings environment
+syn region texZone start="\\begin{lstlisting}" end="\\end{lstlisting}\|%stopzone\>"
+syn region texZone  start="\\lstinputlisting" end="{\s*[a-zA-Z/.0-9_^]\+\s*}"
+syn match texInputFile "\\lstinline\s*\(\[.*\]\)\={.\{-}}" contains=texStatement,texInputCurlies,texInputFileOpt
+
 " Fichier de configuration latex-suite
 " REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
 "filetype plugin on

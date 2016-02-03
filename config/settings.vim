@@ -11,76 +11,29 @@ set grepprg=grep\ -nH\ $*
 " Colorscheme{{{
 syntax enable
 
-"github colorscheme
-"set background=light
-"let g:github_termtrans=1
-"let g:github_termcolors=256
-"let g:github_contrast="high"
-"let g:github_visibility="high"
-"colorscheme github
+" Colorscheme list in
+" .vim/vim-colorscheme.txt
 
-"sol
-"set background=light
-"let g:sol_termtrans=1
-"let g:sol_termcolors=256
-"let g:sol_contrast="high"
-"let g:sol_visibility="high"
-"colorscheme sol
-
-"Solarized
-"set background=dark
-"let g:solarized_termcolors=256
-"let g:solarized_termtrans=1
-"let g:solarized_degrade=0
-"let g:solarized_bold=1 "|0
-"let g:solarized_underline=1 "|0
-"let g:solarized_italic=1 "|0
-"let g:solarized_contrast="normal" "|normal |high |low
-"let g:solarized_visibility="normal"  "normal |high |low
-"colorscheme solarized
-
-"badwolf
-"let g:badwolf_darkgutter=1
-"let g:badwolf_tabline=1
-"let g:badwolf_html_link_underline=1
-"let g:badwolf_css_props_highlight=0
-"colorscheme badwolf
-
-"Molokai
-"let g:molokai_original=1
-"let g:rehash256=1
-"colorscheme Molokai
-
-"railscasts
-"colorscheme railscasts
-
-"sprinkles
-"set background=light
-"let g:sprinkles_termtrans=1
-"let g:sprinkles_termcolors=256
-"let g:sprinkles_contrast="high"
-"let g:sprinkles_visibility="high"
-"colorscheme sprinkles
-
-"earendel
-"set background=light
-"let g:earendel_termtrans=1
-"let g:earendel_termcolors=256
-"let g:earendel_contrast="high"
-"let g:earendel_visibility="high"
-"colorscheme earendel
-
+" My favorite:
+" badwolf
+" candyman
+" PaperColor (use for latex)
+" colorsbox-stbright
+" colorsbox-steighties
+" colorsbox-stnight
 
 if has("gui_running")
     colorscheme badwolf
 else
-    colorscheme candyman
+    colorscheme hybrid
 endif
 
 
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 hi Folded ctermbg=NONE
 
+au FileType tex set background=light
+au FileType tex colorscheme PaperColor
 "}}}
 
 "Vim Weird Config {{{
@@ -153,7 +106,7 @@ nnoremap <C-H> <C-W><C-H>
 " new tab
 
 "vimrc racourcis
-nnoremap <F3> :tabnew ~/.vimrc<cr>
+nnoremap <F3> :tabnew ~/.vimrc<cr> :vsplit ~/.vim/config/settings.vim<cr>
 
 "let mapleader=","       " leader is comma
 "}}}
@@ -163,7 +116,7 @@ nnoremap <F3> :tabnew ~/.vimrc<cr>
 au FileType cpp set makeprg=\ g++\ -v\ -std=c++14\ -stdlib=libc++\ *.cpp\ -g\ -o\ MyProgram
 "au FileType latex set makeprg=\pdflatex\ % ";\ bibtex\ %;\ pdflatex\ %\ pdflatex\ %\
 
-au FileType tex set makeprg=\ xelatex\ %;\ bibtex\ projet;\ xelatex\ %;\ xelatex\ %;\ latexmk\ -c;
+au FileType tex set makeprg=\ pdflatex\ %;\ pdflatex\ %;\ pdflatex\ %;\ latexmk\ -c;\ open\ *.pdf;
 
 nnoremap <F4> :make!<cr>
 
@@ -176,12 +129,13 @@ nnoremap <F5> :!./MyProgram<cr>
 "let g:airline_theme='solarized'
 
 if !exists("g:airline_symbols")
-      let g:airline_symbols = {}
+    let g:airline_symbols = {}
 endif
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 1 "tab number
+au FileType tex let g:airline_theme='papercolor'
 
 " }}}
 
@@ -249,4 +203,5 @@ let g:cpp_class_scope_highlight = 1
 let g:cpp_experimental_template_highlight = 1
 
 " }}}
+
 
