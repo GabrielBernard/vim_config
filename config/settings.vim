@@ -45,11 +45,11 @@ set tabstop=4       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
 set shiftwidth=4
 set expandtab       " tabs are spaces
-set showcmd             " show command in bottom bar
+set showcmd         " show command in bottom bar
 set colorcolumn=110
 highlight colorcolumn ctermbg=darkgray
 
-"set cursorline          " highlight current line
+set cursorline         " highlight current line
 filetype indent on      " load filetype-specific indent files
 set wildmenu            " visual autocomplete for command menu
 set lazyredraw          " redraw only when we need to.
@@ -62,7 +62,7 @@ set relativenumber      " Puts relative numbers
 nnoremap <leader><space> :nohlsearch<CR>
 
 set foldenable          " enable folding
-set foldlevelstart=0   " open most folds by default
+set foldlevelstart=0    " open most folds by default
 set foldnestmax=10      " 10 nested fold max
 
 set foldmethod=marker   " fold based on indent level
@@ -144,6 +144,7 @@ endif
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 1 "tab number
+
 au FileType tex let g:airline_theme='papercolor'
 
 " }}}
