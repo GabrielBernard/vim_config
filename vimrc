@@ -11,12 +11,9 @@ call vundle#begin()
 "Vundle
 Plugin 'VundleVim/Vundle.vim'
 
-"Airline
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 
 "Syntastic
- Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 
 "Ultisnips
 Plugin 'SirVer/ultisnips'
@@ -28,6 +25,9 @@ Plugin 'mkarmona/colorsbox'
 
 "Matlab coding syntax
 "Plugin 'elmanuelito/vim-matlab-behave'
+
+"Gitgutter
+Plugin 'airblade/vim-gitgutter'
 
 "CPP enhanced syntax highlight
 Plugin 'octol/vim-cpp-enhanced-highlight'
@@ -42,7 +42,11 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jcf/vim-latex'
 
 "Ctrlp
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlmvim/ctrlp.vim'
+
+"Airline
+Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 "Gundo
 Plugin 'sjl/gundo.vim'
@@ -67,6 +71,9 @@ Plugin 'tpope/vim-vinegar'
 Plugin 'Raimondi/delimitMate'
 
 Plugin 'nathanaelkane/vim-indent-guides'
+
+Plugin 'ryanoasis/vim-devicons'
+
 "}}}
 
 call vundle#end()

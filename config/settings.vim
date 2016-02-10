@@ -118,6 +118,11 @@ map <silent> <F6> <Esc>:silent setlocal spell! spelllang=fr<CR> :set spell<CR>
 
 "}}}
 
+" Indent Line {{{
+let g:indentLine_enabled = 1
+
+"}}}
+
 "Compiler{{{
 "au FileType cpp set makeprg=\ clang++\ -std=c++11\ -stdlib=libc++\ -Weverything\ -g\ -o\ MyProgram\ %
 au FileType cpp set makeprg=\ g++\ -v\ -std=c++14\ -stdlib=libc++\ *.cpp\ -g\ -o\ MyProgram
@@ -135,8 +140,6 @@ nnoremap <F5> :!./MyProgram<cr>
 
 " Airline {{{
 
-"let g:airline_theme='solarized'
-
 if !exists("g:airline_symbols")
     let g:airline_symbols = {}
 endif
@@ -144,8 +147,11 @@ endif
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 1 "tab number
-
+set laststatus=2
+set ttimeoutlen=50
 au FileType tex let g:airline_theme='papercolor'
+
+let g:airline_powerline_fonts = 1
 
 " }}}
 
@@ -223,4 +229,51 @@ au BufEnter *.txt set spell spelllang=fr
 
 " }}}
 
+" From MikesVimrc {{{
+set guifont<FONT_NAME>:h<FONT_SIZE>
 
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete:h11
+
+" Git gitgutter column colors
+call gitgutter#highlight#define_highlights()
+
+" Space to toggle folds.
+nnoremap <Space> za
+
+"NERDTress File highlighting
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+    exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+    exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+call NERDTreeHighlightFile('vim', 'green', 'none', '#00FF00', '#151515')
+call NERDTreeHighlightFile('java', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('cpp', 'blue', 'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('log', 'white', 'none', '#FFFFFF', '#151515')
+call NERDTreeHighlightFile('txt', 'white', 'none', '#FFFFFF', '#151515')
+call NERDTreeHighlightFile('pdf', 'white', 'none', '#FFFFFF', '#151515')
+call NERDTreeHighlightFile('jpg', 'blue', 'none', '#00CCCC', '#151515')
+call NERDTreeHighlightFile('png', 'blue', 'none', '#00CCCC', '#151515')
+call NERDTreeHighlightFile('h', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('html', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('bib', 'Red', 'none', 'red', '#151515')
+call NERDTreeHighlightFile('tex', 'Red', 'none', '#FF0000', '#151515')
+call NERDTreeHighlightFile('lot', 'Red', 'none', '#FF0000', '#151515')
+call NERDTreeHighlightFile('zip', 'Magenta', 'none', '#ff00ff', '#151515')
+
+"TRLP & GREP
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ctrlp_user_command = 'ag %s -i --nogroup --hidden
+    \ --ignore .git
+    \ --ignore .svn
+    \ --ignore .hg
+    \ --ignore .DS_Store
+    \ --ignore "**/*.pyc"
+    \ --ignore lib
+    \ -g ""'
+let g:ctrlp_regexp = 1
+let g:ctrlp_use_caching = 0
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_switch_buffer = 0
+
+" }}}
