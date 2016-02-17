@@ -1,11 +1,6 @@
 tmp/**
 sessions/**
 doc/**
-plugin/**
 .VimballRecord
-bundle/vim-latex/**
-bundle/YouCompleteMe/**
-bundle/taglist.vim
 .DS_Store
 bundle/
-bundle/.DS_Store
