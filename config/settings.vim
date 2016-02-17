@@ -176,7 +176,7 @@ nnoremap <F1> :GundoToggle<CR>
 
 " Syntastic {{{
 
-set statusline+=%#warningmsg#
+"set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
