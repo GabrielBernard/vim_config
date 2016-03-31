@@ -8,7 +8,7 @@ set mouse=a
 set grepprg=grep\ -nH\ $*
 
 
-" Colorscheme{{{
+"  Colorscheme{{{
 syntax enable
 
 " Colorscheme list in
@@ -25,7 +25,7 @@ syntax enable
 
 if has("gui_running")
     set background=dark
-    colorscheme lucius 
+    colorscheme oceanicnext 
 else
     colorscheme hybrid
 endif
@@ -149,6 +149,11 @@ let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 1 "tab number
 set laststatus=2
 set ttimeoutlen=50
+
+if has("gui_running")
+    let g:airline_theme='oceanicnext'
+endif
+
 au FileType tex let g:airline_theme='papercolor'
 
 let g:airline_powerline_fonts = 1
@@ -171,6 +176,52 @@ set history=100
 set undolevels=100
 
 nnoremap <F1> :GundoToggle<CR>
+
+" }}}
+
+" FZF {{{
+set rtp+=/usr/local/opt/fzf
+let g:fzf_command_prefix = 'Fzf'
+
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" Default fzf layout
+" - down / up / left / right
+" - window (nvim only)
+let g:fzf_layout = { 'down': '~40%' }
+
+" For Commits and BCommits to customize the options used by 'git log':
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+
+" Advanced customization using autoload functions
+autocmd VimEnter * command! Colors
+  \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'})
+
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
+" Advanced customization using autoload functions
+inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
+
+function! s:fzf_statusline()
+  " Override statusline as you like
+  highlight fzf1 ctermfg=161 ctermbg=251
+  highlight fzf2 ctermfg=23 ctermbg=251
+  highlight fzf3 ctermfg=237 ctermbg=251
+  setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
+endfunction
 
 " }}}
 

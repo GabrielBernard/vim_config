@@ -22,6 +22,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'jpo/vim-railscasts-theme'
 Plugin 'mkarmona/colorsbox'
+Plugin 'mhartington/oceanic-next'
 
 "Matlab coding syntax
 "Plugin 'elmanuelito/vim-matlab-behave'
@@ -42,7 +43,10 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jcf/vim-latex'
 
 "Ctrlp
-Plugin 'ctrlmvim/ctrlp.vim'
+"Plugin 'ctrlmvim/ctrlp.vim'
+
+" fzf
+Plugin 'junegunn/fzf', {'dir':'/usr/local/opt/fzf'}
 
 "Airline
 Plugin 'bling/vim-airline'
