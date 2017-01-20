@@ -24,6 +24,9 @@ Plugin 'jpo/vim-railscasts-theme'
 Plugin 'mkarmona/colorsbox'
 Plugin 'mhartington/oceanic-next'
 
+"MiniZinc 2.0
+Plugin 'vale1410/vim-minizinc'
+
 "Matlab coding syntax
 "Plugin 'elmanuelito/vim-matlab-behave'
 

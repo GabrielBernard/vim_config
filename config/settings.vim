@@ -27,7 +27,8 @@ if has("gui_running")
     set background=dark
     colorscheme oceanicnext 
 else
-    colorscheme hybrid
+    "set background="dark"
+    colorscheme hybrid_material
 endif
 
 
